@@ -8,7 +8,9 @@ Off-Platform Project: Boss Machine
 ### Author(s)
 [Dan Beaumont](https://github.com/BeaumontDan)
 
-**Date of Compleation:** 20 March 2025
+**Date of Compleation:** 25 March 2025
+
+**N.B. Codecademy Provided Starter Files are full of PACKAGE ERRORS!**
 
 ## Description
 
@@ -168,10 +170,6 @@ As you implement functionality, run the tests to ensure you are implementing you
 
 --------------------------------------------------------------------------------------------
 
-## Features
-
-* **tbc:** tbc
-
 ## Application Usage
 
 Download Files From [GitHub Repo][GitHubRepo] run command:
@@ -184,10 +182,6 @@ Download Files From [GitHub Repo][GitHubRepo] run command:
 * Express.js
 
 --------------------------------------------------------------------------------------------
-
-## Future Improvements
-
-* tbc
 
 ## Credits
 
