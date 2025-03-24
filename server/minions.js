@@ -31,19 +31,28 @@ minionsRouter.post('/', (req, res, next) => {
 
 // GET Single minion
 minionsRouter.get('/:minionId', (req, res, next) => {
-    res.send(req.minion);
+    const getMinionById = getFromDatabaseById('minions', req.params.minionId);
+    if (getMinionById) {
+        res.send(getMinionById);
+    } else {
+        res.status(404).send({ error: 'Minion not found' });
+    }
 });
 
 // PUT update minion
 minionsRouter.put('/:minionId', (req, res, next) => {
     const updatedMinion = updateInstanceInDatabase('minions', req.body);
-    res.send(updatedMinion);
+    if (updatedMinion) {
+        res.send(updatedMinion); 
+    } else {
+        res.status(404).send({ error: 'Minion not found' });
+    }
 });
 
 // DELETE minion
 minionsRouter.delete('/:minionId', (req, res, next) => {
     const deletedMinion = deleteFromDatabasebyId('minions', req.params.minionId);
-    if (deleted) {
+    if (deletedMinion) {
         res.status(204);
     } else {
         res.status(500)({ error: 'Minion not found' });

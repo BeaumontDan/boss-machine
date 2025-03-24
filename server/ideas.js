@@ -27,7 +27,11 @@ ideasRouter.get('/', (req, res, next) => {
 // POST new Idea
 ideasRouter.post('/', checkMillionDollarIdea, (req, res, next) => {
     const newIdea = addToDatabase('ideas', req.body);
-    res.status(201).send(newIdea);
+    if (newIdea) {
+        res.status(201).send(newIdea);
+    } else {
+        res.status(400).send({ error: 'Invalid Idea' });
+    }
 });
 
 // GET Single Idea
@@ -38,7 +42,12 @@ ideasRouter.get('/:ideaId', (req, res, next) => {
 // PUT update Idea
 ideasRouter.put('/:ideaId', (req, res, next) => {
     const updatedIdea = updateInstanceInDatabase('ideas', req.body);
-    res.send(updatedIdea);
+    if (updatedIdea) {
+        res.status(204);
+    } else {
+        res.status(404).send({ error: 'Idea not found' });
+    }
+    res.send();
 });
 
 // DELETE Idea

@@ -15,7 +15,11 @@ meetingsRouter.get('/', (req, res, next) => {
 // POST new Meeting to database
 meetingsRouter.post('/', (req, res, next) => {
     const newMeeting = addToDatabase('meetings', createMeeting());
-    res.status(201).send(newMeeting);
+    if (newMeeting) {
+        res.send(newMeeting);
+    } else {
+        res.status(400).send({ error: 'Invalid Meeting' });
+    }
 });
 
 // Delete Meetings from database
